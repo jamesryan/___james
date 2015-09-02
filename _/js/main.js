@@ -1,0 +1,1 @@
+$(document).ready(function(){var o=$("#logo");o.velocity({opacity:1},1500)});
