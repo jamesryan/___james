@@ -1,0 +1,3 @@
+name: James Singley
+markdown: redcarpet
+exclude: ["node_modules", "gulpfiles.js", "package.json"]

@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "angular": "^1.4.7",
     "bootstrap": "^3.3.5",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.3.1",
@@ -8,7 +9,11 @@
     "gulp-sass": "^2.0.3",
     "gulp-uglify": "^1.2.0",
     "jquery": "^2.1.4",
+    "ui-router": "^0.2.15",
     "velocity": "^0.7.2",
     "velocity-animate": "^1.2.2"
+  },
+  "dependencies": {
+    "browser-sync": "^2.11.1"
   }
 }
