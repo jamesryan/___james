@@ -5,7 +5,19 @@ var gulp = require('gulp'),
     cp = require('child_process'),
     browserSync = require('browser-sync'),
     uglify = require('gulp-uglify'),
-    prefix = require('gulp-autoprefixer');
+    prefix = require('gulp-autoprefixer'),
+    imagemin = require('gulp-imagemin'),
+		pngquant = require('imagemin-pngquant');
+
+gulp.task('images', function() {
+	gulp.src('assets/img/*')
+			.pipe(imagemin({
+				progressive: true,
+				svgoPlugins: [{removeViewBox: false}],
+				use: [pngquant()]
+			}))
+			.pipe(gulp.dest('assets/img'));
+});;
 
     var messages = {
         jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
@@ -74,7 +86,7 @@ gulp.task('watch', function() {
   gulp.watch(['*.html', '_layouts/*.html', '_includes/*'], ['jekyll-rebuild']);
    // Watch .js files
   gulp.watch('assets/js/**/*.js', ['scripts']);
-  
+
   gulp.watch('_jadefiles/*.jade', ['jade']);
  });
 
