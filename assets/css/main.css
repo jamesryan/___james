@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Fira+Sans:400,400italic);
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 /**
  * 1. Set default font family to sans-serif.
@@ -452,3 +453,8 @@ body {
     margin: 20px auto;
     width: 100%;
     max-width: 600px; } }
+
+.home-wrap header {
+  width: 135px;
+  background: white;
+  padding: 30px 10px; }

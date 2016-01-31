@@ -22,10 +22,13 @@ div.play-button { height: 72px; width: 72px; left: 50%; top: 50%; margin-left: -
 </head>
 
 <body>
-  <nav>
-{% include menu.html %}
+  <div class="home-wrap">
+  <header>
+{% include header.html %}
 
-  </nav>
+
+
+  </header>
 
   <div class="container text-center" id="error">
 
@@ -89,6 +92,7 @@ div.play-button { height: 72px; width: 72px; left: 50%; top: 50%; margin-left: -
     </div>
 
   </div>
+  </div>
   {% include footer.html %}
   <script type="text/javascript" src="assets/js/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -116,6 +120,7 @@ function labnolIframe() {
     iframe.setAttribute("src", "//www.youtube.com/embed/" + this.parentNode.dataset.id + "?autoplay=1&autohide=2&border=0&wmode=opaque&enablejsapi=1&controls=1&showinfo=0");
     iframe.setAttribute("frameborder", "0");
     iframe.setAttribute("id", "youtube-iframe");
+    iframe.setAttribute("allowfullscreen", "1");
     this.parentNode.replaceChild(iframe, this);
 }
 </script>
