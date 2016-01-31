@@ -458,3 +458,6 @@ body {
   width: 135px;
   background: white;
   padding: 30px 10px; }
+  .home-wrap header .site-nav ul {
+    list-style: none;
+    text-align: right; }
