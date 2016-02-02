@@ -1,10 +1,26 @@
-h1.logo JS
+mixin nav-content()
 
-nav.site-nav
   ul
-    li: a(href="about.html") About
-    li: a(href="work.html") Work
+    li: a(href="#about") About
+    li: a(href="#work") Work
     li: a(href="youtube.html") Youtube
     li: a(href="article.html") Articles
 
-a(href="mailto:jamesrs@gmail.com")  +email me
+.mobile-nav
+  +nav-content()
+
+
+header
+  .header-position
+    h1.logo JS
+    
+    nav.site-nav
+      +nav-content()
+      
+    a(href="mailto:jamesrs@gmail.com").email-link  +email me  
+
+    .mobile-nav-toggle
+      span
+
+
+

@@ -17,7 +17,7 @@ gulp.task('images', function() {
 				use: [pngquant()]
 			}))
 			.pipe(gulp.dest('assets/img'));
-});;
+});
 
     var messages = {
         jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
@@ -39,9 +39,18 @@ gulp.task('images', function() {
         browserSync.reload();
     });
 
+    gulp.task('browser-sync', ['sass','jekyll-build'], function() {
+    browserSync({
+        server: {
+            baseDir: '_site'
+        },
+        notify: false
+    });
+});
+
 
 gulp.task('sass', function () {
-   gulp.src(['assets/scss/main.scss', 'assets/**/*.sass'])
+   gulp.src('assets/scss/main.scss')
        .pipe(sass({
          includePaths: ['css'],
          onError: browserSync.notify
@@ -54,14 +63,7 @@ gulp.task('sass', function () {
        .pipe(gulp.dest('assets/css'));
 });
 
-gulp.task('browser-sync', ['sass', 'jekyll-build'], function() {
-    browserSync({
-        server: {
-            baseDir: '_site'
-        },
-        notify: false
-    });
-});
+
 
 gulp.task('scripts', function () {
    return gulp.src(['assets/js/main.js'])
@@ -80,10 +82,10 @@ gulp.task('jade', function() {
 //watcher task
 gulp.task('watch', function() {
    // Watch .scss and sass files
-  gulp.watch(['assets/scss/*.scss', 'assets/**/*.sass'], ['sass']);
+  gulp.watch('assets/css/**',  ['sass']);
 
   // watch jekyll build...
-  gulp.watch(['*.html', '_layouts/*.html', '_includes/*'], ['jekyll-rebuild']);
+  gulp.watch(['index.html', '_layouts/*.html', '_includes/*'], ['jekyll-rebuild']);
    // Watch .js files
   gulp.watch('assets/js/**/*.js', ['scripts']);
 
